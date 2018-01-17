@@ -5,8 +5,11 @@ A vscode c++ repository starter mainly used for code jam, leetcode, hackerthon, 
 Press ctrl-p to install following VS code extensions.
 
 * `ext install ms-vscode.cpptools`
-must have :)
+
+    must have :)
 * `ext install webfreak.debug`
+
 As the current debugger configuration in vs code is still buggy, I would recommend this extension for debugger configuration.
+
 * install MinGW (I install it under D:/MinGW)
-* add <MinGW>/bin to system environment variables path.
+* add \<MinGW\>/bin to system environment variables path.
