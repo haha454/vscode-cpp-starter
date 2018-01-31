@@ -4,12 +4,12 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceRoot}",
-                "D:/MinGW/lib/gcc/mingw32/6.3.0/include/c++",
-                "D:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32",
-                "D:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward",
-                "D:/MinGW/lib/gcc/mingw32/6.3.0/include",
-                "D:/MinGW/include",
-                "D:/MinGW/lib/gcc/mingw32/6.3.0/include-fixed"
+                "D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/7.2.0/include/c++",
+                "D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/7.2.0/include/c++/i686-w64-mingw32",
+                "D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/7.2.0/include/c++/backward",
+                "D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/7.2.0/include",
+                "D:/MinGW/mingw32/i686-w64-mingw32/include",
+                "D:/MinGW/mingw32/include"
             ],
             "defines": [
                 "_DEBUG",
@@ -20,9 +20,9 @@
             "intelliSenseMode": "clang-x64",
             "browse": {
                 "path": [
-                    "D:/MinGW/lib/gcc/mingw32/6.3.0/include",
-                    "D:/MinGW/lib/gcc/mingw32/6.3.0/include-fixed",
-                    "D:/MinGW/include/*"
+                    "D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/7.2.0/include/c++",
+                    "D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/7.2.0/include",
+                    "D:/MinGW/mingw32/include/*"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
