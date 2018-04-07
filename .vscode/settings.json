@@ -8,7 +8,13 @@
         "streambuf": "cpp",
         "iosfwd": "cpp",
         "limits": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "unordered_map": "cpp",
+        "array": "cpp",
+        "stdexcept": "cpp"
     },
     "editor.formatOnType": true
 }
