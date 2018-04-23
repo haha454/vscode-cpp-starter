@@ -12,7 +12,6 @@
                 "${fileBasename}",
                 "-Wall",
                 "-pthread",
-                "-O3",
                 "-o",
                 "${fileBasenameNoExtension}",
                 "-std=c++14"
