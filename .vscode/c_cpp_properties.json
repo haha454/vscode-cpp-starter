@@ -26,9 +26,7 @@
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
-            },
-            "cStandard": "c11",
-            "cppStandard": "c++14"
+            }
         }
     ],
     "version": 3
