@@ -14,7 +14,19 @@
         "utility": "cpp",
         "unordered_map": "cpp",
         "array": "cpp",
-        "stdexcept": "cpp"
+        "stdexcept": "cpp",
+        "cctype": "cpp",
+        "clocale": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "cwchar": "cpp",
+        "cwctype": "cpp",
+        "exception": "cpp",
+        "new": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "typeinfo": "cpp"
     },
     "editor.formatOnType": true
 }

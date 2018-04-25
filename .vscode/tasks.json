@@ -11,10 +11,8 @@
                 "-g",
                 "${fileBasename}",
                 "-Wall",
-                "-pthread",
                 "-o",
-                "${fileBasenameNoExtension}",
-                "-std=c++14"
+                "${fileBasenameNoExtension}"
             ],
             "group": {
                 "kind": "build",
