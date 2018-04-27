@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build for debug",
             "type": "shell",
             "command": "g++",
             "args": [
@@ -17,6 +17,46 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
+            },
+            "problemMatcher": {
+                "owner": "$gcc",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },
+        {
+            "label": "build with pthread, O3 and c++14",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${fileBasename}",
+                "-std=c++14",
+                "-pthread",
+                "-O3",
+                "-Wall",
+                "-o",
+                "${fileBasenameNoExtension}"
+            ],
+            "group": "build",
+            "problemMatcher": {
+                "owner": "$gcc",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
             }
         }
     ]

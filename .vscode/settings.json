@@ -26,7 +26,12 @@
         "new": "cpp",
         "system_error": "cpp",
         "type_traits": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "tuple": "cpp",
+        "scoped_allocator": "cpp",
+        "complex": "cpp",
+        "optional": "cpp",
+        "valarray": "cpp"
     },
     "editor.formatOnType": true
 }
