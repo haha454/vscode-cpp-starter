@@ -1,35 +1,31 @@
 {
+    "env": {
+        "defaultIncludePath": [
+            "${workspaceFolder}",
+            "C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/lib/gcc/i686-w64-mingw32/7.3.0/include",
+            "C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/i686-w64-mingw32/include",
+            "C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/include"
+        ]
+    },
     "configurations": [
         {
             "name": "Win32",
-            "includePath": [
-                "${workspaceRoot}",
-                "D:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++",
-                "D:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32",
-                "D:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward",
-                "D:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/lib/gcc/i686-w64-mingw32/7.3.0/include",
-                "D:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/i686-w64-mingw32/include",
-                "D:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/include"
-            ],
+            "browse": {
+                "path": [
+                    "${defaultIncludePath}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": ["${defaultIncludePath}"],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "__GNUC__=7",
-                "__cdecl=__attribute__((__cdecl__))"
+                "_UNICODE"
             ],
-            "intelliSenseMode": "clang-x64",
-            "browse": {
-                "path": [
-                    "D:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++",
-                    "D:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/lib/gcc/i686-w64-mingw32/7.3.0/include",
-                    "D:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/include/*"
-                ],
-                "limitSymbolsToIncludedHeaders": true,
-                "databaseFilename": ""
-            },
             "cStandard": "c11",
-            "cppStandard": "c++17"
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
         }
     ],
-    "version": 3
+    "version": 4
 }

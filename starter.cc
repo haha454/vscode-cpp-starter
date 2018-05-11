@@ -37,3 +37,11 @@ const int MOD = 1000000007;
 const double PI = 4*atan(1);
 const ll INF = 1e18;
 const int MX = 100001;
+
+int main()
+{
+    int n;
+    cin >> n;
+    cout << n;
+    return 0;
+}
