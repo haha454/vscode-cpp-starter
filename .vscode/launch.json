@@ -28,7 +28,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build"
+            "preLaunchTask": "build for debug"
         },
         {
             "name": "Debug with stdin and stdout",
@@ -49,7 +49,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build"
+            "preLaunchTask": "build for debug"
         }
     ]
 }
