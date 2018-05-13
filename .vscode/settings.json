@@ -31,7 +31,8 @@
         "scoped_allocator": "cpp",
         "complex": "cpp",
         "optional": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "random": "cpp"
     },
     "editor.formatOnType": true
 }
