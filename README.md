@@ -2,16 +2,18 @@
 
 A vscode c++ repository starter mainly used for code jam, leetcode, hackerthon, online judge, etc.
 
-## Prerequisite
+## Get started
 
-### VS code extensions
+### C/C++ for Visual Studio Code
 
-* `ext install ms-vscode.cpptools`
+In VS code hit `ctrl+p` and type the following.
 
-    must have :)
+`ext install ms-vscode.cpptools`
 
 ### Mingw-w64
 
-E.g., `D:/Program Files (x86)/mingw-w64`.
+Download binaries from [here](https://mingw-w64.org/doku.php/download) and install.
 
-### add `<Mingw-w64>/bin` to system environment variables path.
+### Add `<Mingw-w64>/bin` to path
+
+## Happy [CodeJam](https://code.google.com/codejam/)
