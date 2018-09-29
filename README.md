@@ -10,8 +10,8 @@ A vscode c++ repository starter mainly used for code jam, leetcode, hackerthon, 
 
     must have :)
 
-### install MinGW 
+### Mingw-w64
 
-I install it under `D:/MinGW`.
+E.g., `D:/Program Files (x86)/mingw-w64`.
 
-### add `<Your MinGW>/bin` to system environment variables path.
+### add `<Mingw-w64>/bin` to system environment variables path.
