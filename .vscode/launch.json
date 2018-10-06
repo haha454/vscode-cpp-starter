@@ -27,8 +27,7 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ],
-            "preLaunchTask": "build for debug"
+            ]
         },
         {
             "name": "Debug with stdin and stdout",
@@ -48,8 +47,7 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ],
-            "preLaunchTask": "build for debug"
+            ]
         }
     ]
 }
