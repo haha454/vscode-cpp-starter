@@ -1,7 +1,11 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
 int dijkstra(vector<vector<int>> a, int s, int e)
 {
     int n = a.size();
-    vi d = vi(n, INT_MAX);
+    vector<int> d = vector<int>(n, INT_MAX);
     d[s] = 0;
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     pq.push({d[s], s});
@@ -11,7 +15,7 @@ int dijkstra(vector<vector<int>> a, int s, int e)
         pq.pop();
         if (node == e)
             return d[node];
-        F0R(i, n - 1)
+        for (int i = 0; i < n; i++)
         {
             if (a[node][i] != -1)
                 if (d[node] + a[node][i] < d[i])
