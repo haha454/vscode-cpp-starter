@@ -1,1 +1,7 @@
 *.exe
+*.cc
+*.cpp
+*.txt
+!_starter.cc
+!dijkstra.cc
+!kmp.cc

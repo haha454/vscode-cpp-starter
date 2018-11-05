@@ -1,34 +1,15 @@
 {
-    "env": {
-        "defaultIncludePath": [
-            "${workspaceFolder}",
-            "D:/Program Files (x86)/mingw-w64/i686-6.3.0-posix-dwarf-rt_v5-rev2/mingw32/include",
-            "D:/Program Files (x86)/mingw-w64/i686-6.3.0-posix-dwarf-rt_v5-rev2/mingw32/i686-w64-mingw32/include",
-            "D:/Program Files (x86)/mingw-w64/i686-6.3.0-posix-dwarf-rt_v5-rev2/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include",
-            "D:/Program Files (x86)/mingw-w64/i686-6.3.0-posix-dwarf-rt_v5-rev2/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++",
-            "D:/Program Files (x86)/mingw-w64/i686-6.3.0-posix-dwarf-rt_v5-rev2/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/tr1"
-        ]
-    },
     "configurations": [
         {
-            "name": "Win32",
-            "browse": {
-                "path": [
-                    "${defaultIncludePath}"
-                ],
-                "limitSymbolsToIncludedHeaders": true
-            },
+            "name": "MinGW",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "D:\\Program Files (x86)\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\gcc.exe",
             "includePath": [
-                "${defaultIncludePath}"
+                "${workspaceFolder}"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
+            "defines": [],
             "cStandard": "c11",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "clang-x64"
+            "cppStandard": "c++17"
         }
     ],
     "version": 4
