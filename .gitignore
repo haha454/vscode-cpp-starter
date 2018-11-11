@@ -6,3 +6,4 @@
 !dijkstra.cc
 !kmp.cc
 !readIntegersTillEoln.cc
+!readBinaryTreeFromStdin.cc
