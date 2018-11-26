@@ -37,10 +37,14 @@ class UF
         num_combine++;
         if (rank[ra] > rank[rb])
         {
+            rank[ra] += rank[rb];
             root[rb] = ra;
         }
         else
+        {
+            rank[rb] += rank[ra];
             root[ra] = rb;
+        }
     }
 
     int get_num_combine()
