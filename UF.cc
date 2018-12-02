@@ -7,6 +7,7 @@ class UF
   private:
     unordered_map<int, int> root;
     unordered_map<int, int> rank;
+    unordered_map<int, int> size;
     int num_combine;
 
   public:
@@ -19,7 +20,8 @@ class UF
         if (root.find(x) == root.end())
         {
             root[x] = x;
-            rank[x] = 1;
+            rank[x] = 0;
+            size[x] = 1;
             return x;
         }
         if (root[x] == x)
@@ -28,22 +30,28 @@ class UF
         return root[x];
     }
 
-    void combine(int a, int b)
+    void unite(int a, int b)
     {
         int ra = find_root(a);
         int rb = find_root(b);
         if (ra == rb)
             return;
         num_combine++;
-        if (rank[ra] > rank[rb])
+        if (rank[ra] < rank[rb])
         {
-            rank[ra] += rank[rb];
-            root[rb] = ra;
+            root[ra] = rb;
+            size[rb] += size[ra];
+        }
+        else if (rank[ra] == rank[rb])
+        {
+            root[ra] = rb;
+            size[rb] += size[ra];
+            rank[rb]++;
         }
         else
         {
-            rank[rb] += rank[ra];
-            root[ra] = rb;
+            root[rb] = ra;
+            size[ra] += size[rb];
         }
     }
 
@@ -60,7 +68,7 @@ int main()
     while (!cin.eof())
     {
         scanf("%d%d", &a, &b);
-        uf->combine(a, b);
+        uf->unite(a, b);
         printf("Combined %d times.\n", uf->get_num_combine());
     }
     delete uf;
