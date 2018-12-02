@@ -8,3 +8,4 @@
 !readIntegersTillEoln.cc
 !readBinaryTreeFromStdin.cc
 !UF.cc
+!sieve.cc
