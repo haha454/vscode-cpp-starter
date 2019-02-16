@@ -13,7 +13,7 @@ struct tNode {
 without stack */
 void MorrisTraversal(struct tNode* root) 
 { 
-	struct tNode *current, *pre; 
+	struct tNode *current, *temp; 
 
 	if (root == NULL) 
 		return; 
@@ -28,14 +28,14 @@ void MorrisTraversal(struct tNode* root)
 		else { 
 
 			/* Find the inorder predecessor of current */
-			pre = current->left; 
-			while (pre->right != NULL && pre->right != current) 
-				pre = pre->right; 
+			temp = current->left; 
+			while (temp->right != NULL && temp->right != current) 
+				temp = temp->right; 
 
 			/* Make current as right child of its inorder 
 			predecessor */
-			if (pre->right == NULL) { 
-				pre->right = current; 
+			if (temp->right == NULL) { 
+				temp->right = current; 
 				current = current->left; 
 			} 
 
@@ -43,7 +43,7 @@ void MorrisTraversal(struct tNode* root)
 			the original tree i.e., fix the right child 
 			of predecssor */
 			else { 
-				pre->right = NULL; 
+				temp->right = NULL; 
 				printf("%d ", current->data); 
 				current = current->right; 
 			} /* End of if condition pre->right == NULL */
