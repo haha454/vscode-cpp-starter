@@ -23,3 +23,4 @@
 !inverse_modulo_euler_theorem.cc
 !chinese_remainder.cc
 !binary_indexed_tree.cc
+!topological_sort.cc
