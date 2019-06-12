@@ -24,3 +24,4 @@
 !chinese_remainder.cc
 !binary_indexed_tree.cc
 !topological_sort.cc
+!directed_cycle.cc
