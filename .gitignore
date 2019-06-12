@@ -25,3 +25,4 @@
 !binary_indexed_tree.cc
 !topological_sort.cc
 !directed_cycle.cc
+!strong_component.cc
