@@ -27,3 +27,4 @@
 !directed_cycle.cc
 !strong_component.cc
 !kruskal.cc
+!prim.cc

@@ -72,7 +72,6 @@ public:
 class Kruskal
 {
 private:
-    vector<Edge> e;
     vector<pair<int, int>> mst;
 
 public:
