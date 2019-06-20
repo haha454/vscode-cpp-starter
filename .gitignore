@@ -30,3 +30,4 @@
 !prim.cc
 !ford_fulkerson.cc
 !max_pq.cc
+!bellman_ford.cc
