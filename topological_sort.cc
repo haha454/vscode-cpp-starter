@@ -6,6 +6,7 @@ const int INF = 1e9 + 7;
 using namespace std;
 
 // given a directed graph, assume graph has no directed cycle, find its topological order.
+// this algorithm can be also used for shortest path for acyclic graph
 class TopoSort
 {
 private:

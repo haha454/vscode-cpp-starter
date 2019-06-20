@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// find shortest path from s to e, assume that there is no edges with negative weights
 int dijkstra(vector<vector<int>> a, int s, int e)
 {
     int n = a.size();
