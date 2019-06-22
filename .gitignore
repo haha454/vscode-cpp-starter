@@ -32,3 +32,4 @@
 !max_pq.cc
 !bellman_ford.cc
 !lsd_string_sort.cc
+!quick_radix_sort.cc
