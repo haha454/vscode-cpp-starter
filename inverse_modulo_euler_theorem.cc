@@ -17,7 +17,8 @@ int pow(int a, int x, int m)
 
 // input: integer a, prime number m
 // output: x such that ax % m == 1
-// principle: a^(-1) % m == a^(m - 2) % m
+// principle: a^(m - 1) % m == 1 
+// => a^(-1) % m == a^(m - 2) % m
 int euler(int a, int m)
 {
     return pow(a, m - 2, m);
