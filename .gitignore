@@ -34,3 +34,5 @@
 !lsd_string_sort.cc
 !quick_radix_sort.cc
 !robin_karp.cc
+!huffman.cc
+!hex_dump.cc
