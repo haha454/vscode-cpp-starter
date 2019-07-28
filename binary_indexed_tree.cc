@@ -24,14 +24,14 @@ public:
     {
         a.assign(x.size() + 1, 0);
         for (unsigned int i = 0; i < x.size(); i++)
-            update(i + 1, x[i]);
+            update(i, x[i]);
     }
 
     void update(unsigned int pos, int delta)
     {
         pos++;
 
-        while (pos <= a.size())
+        while (pos < a.size())
         {
             a[pos] += delta;
             pos += pos & (-pos);
@@ -59,7 +59,10 @@ int main()
         iss >> operation;
         iss >> a >> b;
         if (operation == 'q')
-            printf("query [%d,%d] == %d\n", a, b, bit.query_sum(a, b));
+        {
+            int result = bit.query_sum(a, b);
+            printf("query [%d,%d] == %d\n", a, b, result);
+        }
         else
         {
             bit.update(a, b);
