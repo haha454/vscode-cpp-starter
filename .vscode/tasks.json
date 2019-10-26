@@ -11,7 +11,7 @@
                 "-g",
                 "${fileBasename}",
                 "-Wall",
-                "-std=c++14",
+                "-std=c++17",
                 "-o",
                 "${fileBasenameNoExtension}"
             ],
@@ -39,7 +39,7 @@
             "args": [
                 "-g",
                 "${fileBasename}",
-                "-std=c++14",
+                "-std=c++17",
                 "-pthread",
                 "-O3",
                 "-Wall",
