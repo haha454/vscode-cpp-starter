@@ -1,19 +1,26 @@
-#include "trace.hh"
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <map>
+#include <unordered_map>
+#include <unordered_set>
+#include <set>
+#include <vector>
+#include <iostream>
+#include <string>
 
-const double PI = 4 * atan(1);
-const int INF = 1e9 + 7;
+#include "trace.hh"
+
+#define INF 1000000007
+
 using namespace std;
 
 int main()
 {
     int t;
-    std::cin >> t;
-    for (int i = 1; i <= t; i++)
+    cin >> t;
+    for (int tt = 1; tt <= t; tt++)
     {
-        std::cout << "Case #" << i << ": ";
-        PRINT(i - 1, i - 1 + i - 1, t - 1);
-        TRACE(i, i + i, t);
+        cout << "Case #" << tt << ": ";
+        TRACE(INF);
     }
     return 0;
 }

@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-
 #define str(a) #a, " = ", a
 #define DELIM " | "
 #define VA_NUM_ARGS(...) VA_NUM_ARGS_IMPL(__VA_ARGS__, 9, 8, 7, 6, 5, 4, 3, 2, 1)
