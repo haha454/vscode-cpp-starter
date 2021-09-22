@@ -37,3 +37,5 @@
 !huffman.cc
 !hex_dump.cc
 !three_way_paritition_k_smallest_elements.cc
+!branch_prediction.cc
+!memory_access_pattern.cc
