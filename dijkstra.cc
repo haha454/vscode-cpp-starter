@@ -22,7 +22,7 @@ int dijkstra(vector<vector<int>> a, int s, int e)
                 if (d[node] + a[node][i] < d[i])
                 {
                     d[i] = d[node] + a[node][i];
-                    pq.push({d[i], i});
+                    pq.push({d[i], i}); // if i exists in PQ, we can alternatively update the priority of i to d[i], instead of pushing a new pair to the PQ
                 }
         }
     }
