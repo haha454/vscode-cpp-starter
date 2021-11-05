@@ -1,75 +1,76 @@
-template<
-    class TComparer = std::less<int>
->
+template <typename TComparer = less<int>> 
 class IndexedPQ {
 private:
-    vector<pair<int, int>> h;
-    unordered_map<int, int> key_idx_map;
-    function<bool (int, int)> comp;
+    function<bool(int, int)> comp;
+    vector<pair<int, int>> h; // {{key, score}}
+    unordered_map<int, int> m; // {{key -> idx}}
     
     void refresh_map(int idx) {
-        if (idx >= h.size()) {
-            return;
-        }
-        key_idx_map[h[idx].first] = idx;    
-    }
-    
-    void sink(int idx) {
-        int n = h.size();
-        while (true) {
-            int left_idx = 2 * idx + 1, right_idx = 2 * idx + 2;
-            if (left_idx >= n) {
-                break;
-            }
-            
-            int child_idx = left_idx;
-            if (right_idx < n && this->comp(h[child_idx].second, h[right_idx].second)) {
-                child_idx = right_idx;
-            }
-            
-            if (!this->comp(h[idx].second, h[child_idx].second)) {
-                break;
-            }
-                
-            swap(h[idx], h[child_idx]);
-            refresh_map(idx);
-            refresh_map(child_idx);
-            idx = child_idx;
-        }
+        auto [key, score] = h[idx];
+        m[key] = idx;
     }
     
     void swim(int idx) {
-        if (idx >= h.size()) {
+        if (idx == 0) {
             return;
         }
         
         while (idx > 0) {
             int parent_idx = (idx - 1) / 2;
-            
-            if (!this->comp(h[parent_idx].second, h[idx].second)) {
+            if (this->comp(h[parent_idx].second, h[idx].second)) {
+                swap(h[parent_idx], h[idx]);
+                refresh_map(parent_idx);
+                refresh_map(idx);
+            } else {
                 break;
             }
-                
-            swap(h[parent_idx], h[idx]);
-            refresh_map(parent_idx);
-            refresh_map(idx);
             idx = parent_idx;
+        }
+    }
+    
+    void sink(int idx) {
+        while (true) {
+            int left_child_idx = idx * 2 + 1;
+            int right_child_idx = idx * 2 + 1;
+            if (left_child_idx >= h.size()) {
+                break;
+            }
+            
+            int child_idx = right_child_idx >= h.size() || !this->comp(h[left_child_idx].second, h[right_child_idx].second) ? left_child_idx : right_child_idx;
+            
+            if (this->comp(h[idx].second, h[child_idx].second)) {
+                swap(h[idx], h[child_idx]);
+                refresh_map(idx);
+                refresh_map(child_idx);
+            } else {
+                break;
+            }
+            idx = child_idx;
         }
     }
     
 public:
     IndexedPQ() : comp(TComparer()) {}
     
-    void insert(int key, int score) {
-        if (!key_idx_map.count(key)) {
-            h.emplace_back(key, score);
-            refresh_map(h.size() - 1);
-            swim(h.size() - 1);
-        } else {
-            int idx = key_idx_map.at(key);
+    int get_score(int key) {
+        if (!m.count(key)) {
+            throw exception();
+        }
+        
+        return h[m.at(key)].second;
+    }
+    
+    void upsert(int key, int score) {
+        if (m.count(key)) {
+            int idx = m.at(key);
             h[idx].second = score;
             swim(idx);
             sink(idx);
+        } else {
+            h.emplace_back(key, score);
+            int idx = h.size() - 1;
+            m[key] = idx;
+            swim(idx);
         }
     }
     
@@ -81,56 +82,59 @@ public:
         return h[0];
     }
     
-    void pop() {
+    pair<int, int> pop() {
         if (h.empty()) {
             throw exception();
         }
         
-        swap(h[0], h.back());
-        key_idx_map.erase(h.back().first);
-        h.pop_back();
-        refresh_map(0);
-        sink(0);
+        return del(h[0].first);
     }
     
-    void del(int key) {
-        if (!key_idx_map.count(key)) {
-            return;
+    pair<int, int> del(int key) {
+        if (!m.count(key)) {
+            throw exception();
         }
         
-        int idx = key_idx_map.at(key);
-        // printf("map: %d->%d\n", key, idx);
-        swap(h[idx], h.back());
-        key_idx_map.erase(h.back().first);
-        h.pop_back();
-        refresh_map(idx);
-        swim(idx);
-        sink(idx);
+        int idx = m.at(key);
+        pair<int, int> result = h[idx];
+        if (h.size() == 1) {
+            h.pop_back();
+            m.clear();
+        } else {
+            m.erase(h[idx].first);
+            h[idx] = h.back();
+            refresh_map(idx);
+            h.pop_back();
+            swim(idx);
+            sink(idx);
+        }
+        
+        return result;
     }
     
     int size() {
         return h.size();
     }
     
-    void print_map() {
-        for (auto const& [key, idx] : key_idx_map) {
-            printf("%d->%d |", key, idx);
-        }
-        cout << endl;
-    }
-    
     void print_all() {
         for (auto const& [key, score] : h) {
-            printf("k: %d s:%d |", key, score);
+            printf("%d %d | ", key, score);
+        }
+        cout << endl;
+        print_map();
+    }
+    
+    void print_map() {
+        for (auto const& [key, idx] : m) {
+            printf("%d->%d |", key, idx);
         }
         cout << endl;
     }
 };
 
+
 class Solution {
 public:
-    // find shortest path from s to e, assume that there is no edges with negative weights
-    // https://leetcode.com/problems/network-delay-time
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
         vector<vector<pair<int, int>>> adj(n);
         
@@ -143,14 +147,13 @@ public:
         IndexedPQ<greater<int>> pq;
         vector<int> d(n, 1e9 + 7);
         d[k] = 0;
-        pq.insert(k, 0);
+        pq.upsert(k, 0);
         while (pq.size()) {
-            auto [node, distance] = pq.top();
-            pq.pop();
+            auto [node, distance] = pq.pop();
             for (auto const& [nxt, weight] : adj[node]) {
                 if (distance + weight < d[nxt]) {
                     d[nxt] = distance + weight;
-                    pq.insert(nxt, d[nxt]);
+                    pq.upsert(nxt, d[nxt]);
                 }
             }
         }
