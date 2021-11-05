@@ -31,7 +31,7 @@ private:
     void sink(int idx) {
         while (true) {
             int left_child_idx = idx * 2 + 1;
-            int right_child_idx = idx * 2 + 1;
+            int right_child_idx = idx * 2 + 2;
             if (left_child_idx >= h.size()) {
                 break;
             }
