@@ -67,7 +67,9 @@
         "sstream": "cpp",
         "thread": "cpp",
         "typeindex": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "any": "cpp",
+        "regex": "cpp"
     },
     "editor.formatOnType": true
 }
