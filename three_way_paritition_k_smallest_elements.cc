@@ -50,7 +50,7 @@ int main()
         if (k < el)
             r = el;
         else if (k > er)
-            l = er + 1;
+            l = er;
         else
         {
             break;
