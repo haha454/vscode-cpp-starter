@@ -7,6 +7,7 @@ using namespace std;
 
 // given a directed graph, assume graph has no directed cycle, find its topological order.
 // this algorithm can be also used for shortest path for acyclic graph
+// https://www.geeksforgeeks.org/shortest-path-for-directed-acyclic-graphs/
 class TopoSort
 {
 private:
