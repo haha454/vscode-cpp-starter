@@ -1,12 +1,12 @@
 {
     "configurations": [
         {
-            "name": "haha",
+            "name": "linux",
             "includePath": [
                 "${workspaceFolder}/**"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/g++",
+            "compilerPath": "/usr/bin/c++",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "${default}"
