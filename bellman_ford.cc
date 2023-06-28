@@ -1,71 +1,97 @@
-#include "trace.hh"
-#include <bits/stdc++.h>
+#include <vector>
+#include <unordered_set>
+#include <queue>
+#include <iostream>
+#include <algorithm>
 
-const double PI = 4 * atan(1);
-const int INF = 1e9 + 7;
-using namespace std;
-
-// assume there is no negative cycle; otherwise the constructor will result in infinite loop.
+// Unlike dijkstra, bellman ford works for shortest distance problem with negative distance edges.
+// Caveat: assume there is no negative cycle; otherwise bellman ford algorithm will never complete.
 class BellmanFord
 {
 private:
-    vector<int> d;
+    std::vector<int> dist_;
 
 public:
-    BellmanFord(vector<vector<pair<int, int>>> &&graph, int s)
+    BellmanFord(const std::vector<std::vector<std::pair<int, int>>>& adj, int s)
     {
-        d.assign(graph.size(), INF);
-        unordered_set<int> inq;
-        queue<int> q;
-        d[s] = 0;
+        dist_.assign(adj.size(), -1);
+        std::queue<int> q;
+        std::unordered_set<int> q_set;
+        dist_[s] = 0;
         q.push(s);
-        inq.insert(s);
+        q_set.insert(s);
         while (!q.empty())
         {
-            int v = q.front();
+            auto cur{q.front()};
             q.pop();
-            inq.erase(v);
-            for (auto const &p : graph[v])
+            q_set.erase(cur);
+            for (auto const &[nxt, nxt_dist] : adj[cur])
             {
-                int w = p.first;
-                int weight = p.second;
-                if (d[w] > d[v] + weight)
+                if (dist_[nxt] == -1 || dist_[cur] + nxt_dist < dist_[nxt])
                 {
-                    d[w] = d[v] + weight;
-                    if (!inq.count(w))
+                    dist_[nxt] = dist_[cur] + nxt_dist;
+                    if (!q_set.count(nxt))
                     {
-                        q.push(w);
-                        inq.insert(w);
+                        q.push(nxt);
+                        q_set.insert(nxt);
                     }
                 }
             }
         }
     }
 
-    int dist(int w)
+    int GetShortestDistance(int w) const
     {
-        return d[w];
+        return dist_[w];
+    }
+
+    int GetMaxShortestDistance() const {
+        return *std::max_element(dist_.cbegin(), dist_.cend());
+    }
+
+    bool AllReachable() const {
+        return std::all_of(dist_.cbegin(), dist_.cend(), [](int dist)
+                           { return dist >= 0; });
+    }
+};
+
+class Solution {
+public:
+    // https://leetcode.com/problems/network-delay-time/description/
+    int networkDelayTime(const std::vector<std::vector<int>>& times, int n, int k) {
+        std::vector<std::vector<std::pair<int, int>>> adj(n);
+        for (auto const &time : times)
+        {
+            adj[time[0] - 1].emplace_back(time[1] - 1, time[2]);
+        }
+
+        BellmanFord bf{adj, k - 1};
+        if (!bf.AllReachable()) {
+            return -1;
+        }
+
+        return bf.GetMaxShortestDistance();
     }
 };
 
 int main()
 {
     int n, a, b, m;
-    cin >> n;
-    vector<vector<pair<int, int>>> graph(n);
-    for (int i = 0; i < n; i++)
+    std::cin >> n;
+    std::vector<std::vector<std::pair<int, int>>> adj(n);
+    for (auto i{0}; i < n; i++)
     {
-        cin >> m;
+        std::cin >> m;
         while (m--)
         {
-            cin >> a >> b;
-            graph[i].emplace_back(a, b);
+            std::cin >> a >> b;
+            adj[i].emplace_back(a, b);
         }
     }
-    auto bf = BellmanFord(move(graph), 0);
-    for (int i = 0; i < n; i++)
+    auto bf{BellmanFord(adj, 0)};
+    for (auto i{1}; i < n; i++)
     {
-        printf("%d %d\n", i, bf.dist(i));
+        std::cout << "Distance from 0 to " << i << ": " << bf.GetShortestDistance(i) << std::endl;
     }
     return 0;
 }
