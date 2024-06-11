@@ -16,7 +16,7 @@ public:
         rctr++;
         if (rctr == 1)
         {
-            resource.lock();
+            resource.acquire();
         }
         tryread.release();
     }
@@ -27,7 +27,7 @@ public:
         rctr--;
         if (rctr == 0)
         {
-            resource.Unlock();
+            resource.release();
         }
     }
 
