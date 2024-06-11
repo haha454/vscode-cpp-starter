@@ -1,14 +1,14 @@
 using namespace std;
 
-class FairSemaphore
+class FairBinarySemaphore
 {
 private:
-    conditional_variable cv;
+    condition_variable cv;
     mutex mx;
     long long qhead, qtail;
 
 public:
-    FairSemaphore() : qhead(0), qtail(0)
+    FairBinarySemaphore() : qhead(0), qtail(0)
     {
     }
 
@@ -34,7 +34,7 @@ class RWLock
 private:
     mutex rmtx;
     binary_semaphore resource;
-    FairSemaphore fs;
+    FairBinarySemaphore fs;
     int rctr;
 
 public:
@@ -45,7 +45,7 @@ public:
         rctr++;
         if (rctr == 1)
         {
-            resource.lock();
+            resource.acquire();
         }
         fs.release();
     }
@@ -56,7 +56,7 @@ public:
         rctr--;
         if (rctr == 0)
         {
-            resource.Unlock();
+            resource.release();
         }
     }
 
