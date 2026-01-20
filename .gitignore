@@ -8,6 +8,24 @@
 *.ipch
 *.bin
 *.py
+# CMake Build Artifacts
+cmake-build-*/
+
+# CLion/JetBrains IDE-specific files
+.idea/
+!.idea/.gitignore
+!.idea/encodings.xml
+!.idea/misc.xml
+!.idea/vcs.xml
+!.idea/workspace.xml
+# other specific idea files you want to share
+
+# Executables and Libraries (general C/C++ build artifacts)
+*.dll
+*.so
+*.a
+*.lib
+
 !_starter.cc
 !dijkstra.cc
 !kmp.cc
@@ -43,3 +61,4 @@
 !second_reader_writer_problem.cc
 !third_reader_writer_problem.cc
 !basic_calculator.cc
+!workers_distribution.cc
