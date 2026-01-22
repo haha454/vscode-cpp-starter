@@ -62,3 +62,5 @@ cmake-build-*/
 !third_reader_writer_problem.cc
 !basic_calculator.cc
 !workers_distribution.cc
+!flat_map.cc
+!function.cc
